@@ -5,13 +5,8 @@ LABEL maintainer="endpot@gmail.com"
 ENV PROTOC_VER 3.11.4
 
 # Update and install necessary dependency
-RUN apk update && \
-    apk add bash && \
-    apk add curl && \
-    apk add git && \
-    apk add make && \
-    apk add protoc && \
-    apk add zip
+RUN apk update --no-cache && \
+    apk add --no-cache bash curl git make protoc zip
 
 RUN GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && \
     GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger && \
