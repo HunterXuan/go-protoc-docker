@@ -8,9 +8,9 @@ RUN apk update && \
     apk add zip && \
     apk add protoc
 
-RUN go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && \
-    go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
-    go get -u -t github.com/golang/protobuf/protoc-gen-go
+RUN GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && \
+    GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger && \
+    GO111MODULE=off go get -u -t github.com/golang/protobuf/protoc-gen-go
 
 RUN curl -Ls https://github.com/golang-migrate/migrate/releases/latest/download/migrate.linux-arm64.tar.gz | \
     tar -xz -C /usr/local/bin && \
