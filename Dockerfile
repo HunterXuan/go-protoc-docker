@@ -13,7 +13,7 @@ RUN GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-g
     GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger && \
     GO111MODULE=off go get -u -t github.com/golang/protobuf/protoc-gen-go
 
-RUN curl -Ls https://github.com/golang-migrate/migrate/releases/latest/download/migrate.linux-arm64.tar.gz | \
+RUN curl -Ls https://github.com/golang-migrate/migrate/releases/latest/download/migrate.linux-amd64.tar.gz | \
     tar -xz -C /usr/local/bin && \
     mv /usr/local/bin/migrate.linux-amd64 /usr/local/bin/migrate && \
     chmod +x /usr/local/bin/migrate
