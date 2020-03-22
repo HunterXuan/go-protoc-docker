@@ -4,9 +4,10 @@ LABEL maintainer="endpot@gmail.com"
 
 # Update and install protoc
 RUN apk update && \
+    apk add curl && \
     apk add git && \
-    apk add zip && \
-    apk add protoc
+    apk add protoc && \
+    apk add zip
 
 RUN GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && \
     GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger && \
