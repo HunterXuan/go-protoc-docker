@@ -4,8 +4,10 @@ LABEL maintainer="endpot@gmail.com"
 
 # Update and install protoc
 RUN apk update && \
+    apk add bash && \
     apk add curl && \
     apk add git && \
+    apk add make && \
     apk add protoc && \
     apk add zip
 
