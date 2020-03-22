@@ -10,6 +10,7 @@ RUN apk update && \
     apk add curl && \
     apk add git && \
     apk add make && \
+    apk add protoc && \
     apk add zip
 
 RUN GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && \
@@ -17,7 +18,6 @@ RUN GO111MODULE=off go get -u -t github.com/grpc-ecosystem/grpc-gateway/protoc-g
     GO111MODULE=off go get -u -t github.com/golang/protobuf/protoc-gen-go
 
 RUN curl -OLs https://github.com/protocolbuffers/protobuf/releases/download/v$PROTOC_VER/protoc-$PROTOC_VER-linux-x86_64.zip && \
-    unzip -o protoc-$PROTOC_VER-linux-x86_64.zip -d /usr/local bin/protoc && \
     unzip -o protoc-$PROTOC_VER-linux-x86_64.zip -d /usr/local include/* && \
     rm -rf protoc-$PROTOC_VER-linux-x86_64.zip
 
